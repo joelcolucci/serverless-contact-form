@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Create Contact Schema",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "email"
+  ],
+  "additionalProperties": false
+}

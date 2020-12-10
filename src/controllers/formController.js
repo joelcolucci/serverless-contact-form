@@ -1,6 +1,6 @@
 import * as uuid from 'uuid'
 
-import * as db from '../db'
+import db from '../db'
 import { parseUserId } from '../auth/utils'
 
 export async function createForm(

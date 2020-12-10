@@ -18,6 +18,7 @@ provider:
 
   environment:
     FORM_TABLE: Forms-${self:provider.stage}
+    CONTACT_TABLE: Contacts-${self:provider.stage}
 
 functions:
 
@@ -87,6 +88,68 @@ functions:
           - dynamodb:DeleteItem
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.FORM_TABLE}
 
+  GetContacts:
+    handler: src/lambda/http/getContacts.handler
+    events:
+      - http:
+          method: get
+          path: forms/{formId}/contacts
+          cors: true
+          authorizer: Auth
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:Query
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.CONTACT_TABLE}
+
+  CreateContact:
+    handler: src/lambda/http/createContact.handler
+    events:
+      - http:
+          method: post
+          path: forms/{formId}/contacts
+          cors: true
+          request:
+            schema:
+              application/json: ${file(src/models/create-contact-model.json)}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:PutItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.CONTACT_TABLE}
+
+  UpdateContact:
+    handler: src/lambda/http/updateContact.handler
+    events:
+      - http:
+          method: patch
+          path: forms/{formId}/contacts/{contactId}
+          cors: true
+          authorizer: Auth
+          request:
+            schema:
+              application/json: ${file(src/models/update-contact-model.json)}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:PutItem
+          - dynamodb:UpdateItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.CONTACT_TABLE}
+
+  DeleteContact:
+    handler: src/lambda/http/deleteContact.handler
+    events:
+      - http:
+          method: delete
+          path: forms/{formId}/contacts/{contactId}
+          cors: true
+          authorizer: Auth
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:DeleteItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.CONTACT_TABLE}
+
 resources:
   Resources:
     GatewayResponseDefault4XX:
@@ -115,3 +178,19 @@ resources:
             KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:provider.environment.FORM_TABLE}
+
+    ContactsDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: formId
+            AttributeType: S
+          - AttributeName: contactId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: formId
+            KeyType: HASH
+          - AttributeName: contactId
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.CONTACT_TABLE}
