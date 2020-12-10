@@ -1,0 +1,700 @@
+{
+	"info": {
+		"_postman_id": "f85eb39f-1fe5-42a7-bfc8-37474c07662a",
+		"name": "Serverless Contact Form",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FORMs",
+			"item": [
+				{
+					"name": "Get all forms",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/callback",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authToken",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "fVQowIBQxGqCtSMlzjkBqFue1MvhCbmF",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create form",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/callback",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authToken",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "fVQowIBQxGqCtSMlzjkBqFue1MvhCbmF",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Water flowers\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update form",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/callback",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authToken",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "fVQowIBQxGqCtSMlzjkBqFue1MvhCbmF",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Change the world\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms/4b507a0f-c630-44a8-8b84-e0a29d41cd07",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms",
+								"4b507a0f-c630-44a8-8b84-e0a29d41cd07"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete form",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/callback",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authToken",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "fVQowIBQxGqCtSMlzjkBqFue1MvhCbmF",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms/4b507a0f-c630-44a8-8b84-e0a29d41cd07",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms",
+								"4b507a0f-c630-44a8-8b84-e0a29d41cd07"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8a3f02a1-4741-4bc0-ad92-d57edad6eb1b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fc39d47-a2f9-4aee-afdf-43b0af1b3280",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CONTACTs",
+			"item": [
+				{
+					"name": "Get all contacts",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/callback",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authToken",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "fVQowIBQxGqCtSMlzjkBqFue1MvhCbmF",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms/{{formId}}/contacts",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms",
+								"{{formId}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create contact",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"bobbytables@hey.com\",\n    \"message\": \"Please don't drop me\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms/{{formId}}/contacts",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms",
+								"{{formId}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update contact",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/callback",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authToken",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "fVQowIBQxGqCtSMlzjkBqFue1MvhCbmF",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bobbytables@hey.com\",\n\t\"message\": \"I like scenic views\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms/{{formId}}/contacts/7914c65f-11ae-4d4f-8392-7fab3be34745",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms",
+								"{{formId}}",
+								"contacts",
+								"7914c65f-11ae-4d4f-8392-7fab3be34745"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete contact",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/callback",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authToken",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "fVQowIBQxGqCtSMlzjkBqFue1MvhCbmF",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/forms/{{formId}}/contacts/f8a31afd-49d8-4f30-8145-4ddec1644c60",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"forms",
+								"{{formId}}",
+								"contacts",
+								"f8a31afd-49d8-4f30-8145-4ddec1644c60"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3516681d-3d8c-4dcd-bf10-0a8ba036af90",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6611b235-d202-4bf5-a1b6-c5a00db5529d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9bb098ab-3b55-4082-86b1-0efdc7503e05",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "13f86d12-1e36-402c-ad81-6b3a5d0cc653",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c458a2b6-95e5-4289-9106-ec4802f52f51",
+			"key": "apiId",
+			"value": "psr12lxhgl"
+		},
+		{
+			"id": "9cde6348-8195-4801-976f-8643d4d84884",
+			"key": "authToken",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
