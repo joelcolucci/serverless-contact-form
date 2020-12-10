@@ -28,6 +28,13 @@ accessTokenUrl: "https://dev-y9y-2a0g.us.auth0.com/oauth/token",
 After generating a token in postman you must copy and paste
 the auth token to the Postman environment variable {{authToken}}
 
+#### Required postman environment variables
+```
+apiId: psr12lxhgl
+authToken: USE_JWT_FROM_ABOVE_STEP
+formId: Create a form via Postman and copy formId to this envvar
+```
+
 ### Forms
 #### POST `/forms`
 - Create a new form for a user
